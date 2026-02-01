@@ -4,12 +4,11 @@ import { Card } from "../components";
 import { useTitle } from "../hooks/useTitle";
 
 export const Search = ({ apiPath }) => {
-  const [searcgParams] = useSearchParams();
-  const queryTerm = searcgParams.get("q");
+  const [searchParams] = useSearchParams();
+  const queryTerm = searchParams.get("q");
 
   const { data: movies } = useFetch(apiPath, queryTerm);
-  //eslint-disable-next-line
-  const pageTitle = useTitle(`Search Result For ${queryTerm}`);
+  useTitle(`Search Result For ${queryTerm}`);
 
   return (
     <main>
